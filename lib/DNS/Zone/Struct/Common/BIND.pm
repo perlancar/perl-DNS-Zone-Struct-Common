@@ -142,8 +142,8 @@ sub _sort_records {
 
         # just to be nice: sort by record type: SOA first, then NS, then A, then
         # MX, then the rest
-        my $a_type = $a->{type} eq 'NS' ? 0 : $a->{type} eq 'NS' ? 1 : $a->{type} eq 'A' ? 2 : $a->{type} eq 'MX' ? 3 : $a->{type};
-        my $b_type = $b->{type} eq 'NS' ? 0 : $b->{type} eq 'NS' ? 1 : $b->{type} eq 'A' ? 2 : $b->{type} eq 'MX' ? 3 : $b->{type};
+        my $a_type = $a->{type} eq 'SOA' ? 0 : $a->{type} eq 'NS' ? 1 : $a->{type} eq 'A' ? 2 : $a->{type} eq 'MX' ? 3 : $a->{type};
+        my $b_type = $b->{type} eq 'SOA' ? 0 : $b->{type} eq 'NS' ? 1 : $b->{type} eq 'A' ? 2 : $b->{type} eq 'MX' ? 3 : $b->{type};
         return $cmp if $cmp = $a_type cmp $b_type;
 
         0;
